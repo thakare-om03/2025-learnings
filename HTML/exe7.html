@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms with Inputs</title>
+    <style>
+        input[type="reset"] {
+            background-color: #f44336;
+            color: white;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <h1>Login</h1>
+        <label for="username">Username:
+            <input type="text" name="username" id="username" required>
+        </label>
+        <label for="email">Email:
+            <input type="email" name="email" id="email" required>
+        </label>
+        <label for="password">Password:
+            <input type="password" name="password" id="password" required>
+        </label>
+        <input type="reset" value="Reset">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
