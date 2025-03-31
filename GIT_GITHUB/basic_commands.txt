@@ -1,0 +1,31 @@
+# Basic Git Commands
+
+## Repository Setup & Status
+git init                    # Initializes a new Git repository in the current directory
+git status                  # Shows the working tree status (modified, staged files)
+git add filename            # Adds a specific file to the staging area
+git add .                   # Adds all modified files to the staging area
+git commit -m "message"     # Creates a new commit with the staged changes and a descriptive message
+git log --oneline           # Shows commit history in a compact format (one line per commit)
+
+## Branching & Navigation
+git branch                  # Lists all local branches
+git branch branch-name      # Creates a new branch
+git checkout branch-name    # Switches to specified branch (older syntax)
+git switch branch-name      # Switches to specified branch (newer syntax)
+git checkout -b branch-name # Creates and switches to a new branch
+
+## Remote Repositories
+git remote -v               # Lists all remote repositories
+git remote add origin URL   # Adds a remote repository
+git push origin branch-name # Pushes local commits to the remote repository
+git pull origin branch-name # Fetches and merges changes from remote repository
+
+## Undoing Changes
+git restore filename        # Discards changes in working directory
+git reset --soft HEAD~1     # Undoes the last commit, keeping changes staged
+git reset --hard HEAD~1     # Undoes the last commit, discarding all changes
+
+## Examining Changes
+git diff                    # Shows unstaged changes
+git diff --staged           # Shows staged changes
