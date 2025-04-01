@@ -20,6 +20,10 @@ git remote -v               # Lists all remote repositories
 git remote add origin URL   # Adds a remote repository
 git push origin branch-name # Pushes local commits to the remote repository
 git pull origin branch-name # Fetches and merges changes from remote repository
+git clone URL               # Creates a copy of a remote repository
+git fetch                   # Downloads objects and refs from remote without merging
+git pull --rebase           # Pulls changes and rebases local work on top
+git push -u origin branch   # Sets upstream branch and pushes to remote
 
 ## Undoing Changes
 git restore filename        # Discards changes in working directory
@@ -29,3 +33,12 @@ git reset --hard HEAD~1     # Undoes the last commit, discarding all changes
 ## Examining Changes
 git diff                    # Shows unstaged changes
 git diff --staged           # Shows staged changes
+
+## Advanced Operations
+git merge branch-name       # Merges specified branch into current branch
+git rebase branch-name      # Reapplies commits on top of another base branch
+git cherry-pick commit-hash # Applies changes from a specific commit to current branch
+git stash                   # Temporarily saves uncommitted changes
+git stash list              # Lists all stashed changesets
+git stash pop               # Applies and removes the most recent stash
+git stash apply             # Applies the most recent stash without removing it
