@@ -6,7 +6,7 @@ using namespace std;
 class Solution
 {
 public:
-    vector<int> largest_element_rec(vector<int> &arr)
+    int largest_element_rec(vector<int> &arr)
     {
         int n = arr.size();
         int largest = arr[0];
