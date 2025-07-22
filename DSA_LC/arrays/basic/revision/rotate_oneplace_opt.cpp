@@ -9,12 +9,12 @@ public:
     vector<int> rotate_array_optimal(vector<int>& arr)
     {
         int n = arr.size();
-        int last_element = arr[n-1];
+        int first_element = arr[0];
         for (int i = 0; i < n-1; i++)
         {
             arr[i]=arr[i+1];
         }
-        arr[0]=last_element;
+        arr[n-1]=first_element;
         return arr;
     }
 };
