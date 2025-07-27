@@ -6,12 +6,13 @@ using namespace std;
 class Solution
 {
 public:
-    bool threeConsecutiveOdds(vector<int> &arr)
+    bool containsDuplicate(vector<int> &nums)
     {
-        int n = arr.size();
-        for (int i = 0; i < n - 2; i++)
+        int n = nums.size();
+        sort(nums.begin(), nums.end());
+        for (int i = 1; i < n; i++)
         {
-            if ((arr[i] % 2 != 0) && (arr[i + 1] % 2 != 0) && (arr[i + 2] % 2 != 0))
+            if (nums[i] == nums[i - 1])
             {
                 return true;
             }
