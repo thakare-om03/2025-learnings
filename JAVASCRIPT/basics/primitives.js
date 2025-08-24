@@ -1,39 +1,71 @@
-// Number
+// Fundamentals: JavaScript primitive data types
+// Primitives are immutable (you can't change them in place) and are copied by value.
+// Most frequently used primitives: string, number, boolean, undefined, null, bigint, symbol.
+// There are also object wrapper types (String, Number, Boolean) — avoid using `new` with these
+// because they create objects, not primitive values, and can cause surprising behavior.
 
-let balance = 120;
-let anotherBalance = new Number(120);
+// -------------------------
+// String (primitive) — used for text
+// -------------------------
+let name = "om";
+let lastname = "thakare";
+let fullname = `${name} ${lastname}`; // primitive string
+let newname = new String("thakare"); // String object (wrapper) — typeof -> "object"
 
-// console.log(balance);
-// console.log(anotherBalance.valueOf());
+console.log(name, typeof name); // "om" "string"
+console.log(newname, typeof newname); // [String: 'thakare'] "object"
+console.log(fullname, typeof fullname); // [String: 'om thakare'] "object"
 
-// console.log(typeof balance);
-// console.log(typeof anotherBalance);
+// Recommended: use primitive strings. Only use String object intentionally in rare cases.
 
-//boolean
-let isActive = true;
-let isReallyActive = new Boolean(true); // not recommended
+// -------------------------
+// Boolean (primitive) — true / false
+// -------------------------
+let ishireable = false; // primitive boolean
+let newishireable = new Boolean(false); // Boolean object (wrapper)
 
-// null and undefined
+console.log(ishireable, typeof ishireable); // false "boolean"
+console.log(newishireable, typeof newishireable); // [Boolean: false] "object"
 
-let firstname = null;
-let lastname = undefined;
-// console.log(firstname);
-// console.log(lastname);
+// Note: Boolean objects are truthy even if they wrap false, which can be surprising:
+// Boolean(new Boolean(false)) === true
 
-//string
+// -------------------------
+// Number (primitive) — all numeric values (integers and floats)
+// -------------------------
+let age = 21; // primitive number
+let newage = new Number(21); // Number object (wrapper)
 
-let myString = "hello";
-let myStringOne = "Hola";
-let username = "hitesh";
+console.log(age, typeof age); // 21 "number"
+console.log(newage, typeof newage); // [Number: 21] "object"
 
-let oldGreet = myString + " " + "hitesh";
-// console.log(oldGreet);
+// Special numeric values: NaN, Infinity (both typeof "number").
 
-let greetMessage = `Hello ${username} !`;
-let demoOne = `Value is ${2 * 2}`;
-// console.log(demoOne);
+// -------------------------
+// BigInt — integers with arbitrary precision
+// -------------------------
+let big = 9007199254740993n; // note the trailing "n"
+console.log(big, typeof big); // 9007199254740993n "bigint"
 
-let sm1 = Symbol("hitesh");
-let sm2 = Symbol("hitesh");
+// -------------------------
+// Symbol — unique identifiers
+// -------------------------
+let id = Symbol("id");
+console.log(id, typeof id); // Symbol(id) "symbol"
 
-console.log(sm1);
+// -------------------------
+// undefined — declared but not initialized
+// -------------------------
+let salary; // no value assigned
+console.log(salary, typeof salary); // undefined "undefined"
+
+// -------------------------
+// null — explicitly "no value"
+// -------------------------
+let married = null;
+console.log(married, typeof married); // null "object" (historical JS quirk)
+
+// -------------------------
+// Summary: avoid wrapper objects (new String/Number/Boolean).
+// Use primitives for predictable behavior and better performance.
+// -------------------------
