@@ -1,90 +1,77 @@
 /* 
-1. Declare an array named `teaFlavors` that contains the strings `"green tea"`, `"black tea"`, and `"oolong tea"`. 
-   Access the first element of the array and store it in a variable named `firstTea`.
+Arrays fundamentals with short descriptions and inline comments.
+Each numbered block demonstrates a basic array operation or concept.
 */
 
+/* 1. Array declaration and indexing
+   - Arrays store ordered collections.
+   - Access elements by index (0-based).
+*/
 let teaFlavors = ["green tea", "black tea", "oolong tea"];
+const firstTea = teaFlavors[0]; // "green tea"
 
-const firstTea = teaFlavors[0];
-
-/* 
-2. Declare an array named `cities` containing `"London"`, `"Tokyo"`, `"Paris"`, and `"New York"`. 
-   Access the third element in the array and store it in a variable named `favoriteCity`.
+/* 2. Another example of indexing
+   - Index 2 returns the third element.
 */
-
 let cities = ["London", "Tokyo", "Paris", "New York"];
-const favoriteCity = cities[2];
+const favoriteCity = cities[2]; // "Paris"
 
-/* 
-3. You have an array named `teaTypes` containing `"herbal tea"`, `"white tea"`, and `"masala chai"`. 
-   Change the second element of the array to `"jasmine tea"`.
+/* 3. Mutating arrays by index
+   - You can change elements directly using their index.
+   - Fixed a small spelling mistake in the original item.
 */
-let teaTypes = ["herbel tea", "white tea", "masala chai"];
+let teaTypes = ["herbal tea", "white tea", "masala chai"];
+teaTypes[1] = "jasmine tea"; // change "white tea" to "jasmine tea"
 
-/* 
-4. Declare an array named `citiesVisited` containing `"Mumbai"` and `"Sydney"`. 
-   Add `"Berlin"` to the array using the `push` method.
+/* 4. Adding elements with push()
+   - push adds items to the end of the array (mutates the array).
 */
-
 let citiesVisited = ["Mumbai", "Sydney"];
-citiesVisited.push("Berlin");
-// console.log(citiesVisited);
+citiesVisited.push("Berlin"); // ["Mumbai", "Sydney", "Berlin"]
 
-/* 
-5. You have an array named `teaOrders` with `"chai"`, `"iced tea"`, `"matcha"`, and `"earl grey"`. 
-   Remove the last element of the array using the `pop` method and store it in a variable named `lastOrder`.
+/* 5. Removing the last element with pop()
+   - pop removes and returns the last element.
 */
-
 let teaOrders = ["chai", "iced tea", "matcha", "earl grey"];
-const lastOrder = teaOrders.pop();
+const lastOrder = teaOrders.pop(); // lastOrder = "earl grey", teaOrders now has 3 items
 
-/* 
-6. You have an array named `popularTeas` containing `"green tea"`, `"oolong tea"`, and `"chai"`. 
-   Create a soft copy of this array named `softCopyTeas`.
+/* 6. Soft (shallow) copy / reference behavior
+   - Assigning one array to another copies the reference, not the contents.
+   - Mutating the original affects the reference copy.
 */
-
 let popularTeas = ["green tea", "oolong tea", "chai"];
-let softCopyTeas = popularTeas;
-popularTeas.pop();
-// console.log(softCopyTeas);
-// console.log(popularTeas);
+let softCopyTeas = popularTeas; // both variables reference the same array
+popularTeas.pop(); // removes "chai" from the shared array
+// softCopyTeas now reflects the change because it's the same array
 
-/* 
-7. You have an array named `topCities` containing `"Berlin"`, `"Singapore"`, and `"New York"`. 
-   Create a hard copy of this array named `hardCopyCities`.
+/* 7. Hard (shallow) copy using spread or slice
+   - Create a new array with the same elements so mutations don't affect the original.
+   - Note: this is a shallow copy; nested objects would still be shared.
 */
-
 let topCities = ["Berlin", "Singapore", "New York"];
-let hardCopyCities = [...topCities];
-// let hardCopyCities = topCities.slice();
-topCities.pop();
-// console.log(hardCopyCities);
+let hardCopyCities = [...topCities]; // spread creates a new array copy
+// alternatively: let hardCopyCities = topCities.slice();
+topCities.pop(); // does not change hardCopyCities
 
-/* 
-8. You have two arrays: `europeanCities` containing `"Paris"` and `"Rome"`, and `asianCities` containing `"Tokyo"` and `"Bangkok"`. 
-   Merge these two arrays into a new array named `worldCities`.
+/* 8. Merging arrays with concat (or spread)
+   - concat returns a new array combining inputs.
 */
-
 let europeanCities = ["Paris", "Rome"];
 let asianCities = ["Tokyo", "Bangkok"];
 let worldCities = europeanCities.concat(asianCities);
+// or: let worldCities = [...europeanCities, ...asianCities];
+// console.log(worldCities); // ["Paris","Rome","Tokyo","Bangkok"]
 
-console.log(worldCities);
-
-/* 
-9. You have an array named `teaMenu` containing `"masala chai"`, `"oolong tea"`, `"green tea"`, and `"earl grey"`. 
-   Find the length of the array and store it in a variable named `menuLength`.
+/* 9. Array length
+   - .length gives number of elements.
 */
+let teaMenu = ["masala chai", "oolong tea", "green tea", "earl grey"];
+let menuLength = teaMenu.length; // 4
 
-let teaMenu = ["Masala chai", "oolong tea", "green tea", "earl grey"];
-
-let menuLength = teaMenu.length;
-
-/* 
-10. You have an array named `cityBucketList` containing `"Kyoto"`, `"London"`, `"Cape Town"`, and `"Vancouver"`. 
-    Check if `"London"` is in the array and store the result in a variable named `isLondonInList`.
+/* 10. Checking membership with includes()
+   - includes returns true if an element exists in the array.
 */
-
 let cityBucketList = ["Kyoto", "London", "Cape Town", "Vancouver"];
+let isLondonInList = cityBucketList.includes("London"); // true
 
-let isLondonInList = cityBucketList.includes("London");
+// End of fundamentals: declaration, indexing, mutation, push/pop, references vs copies, merging, length, membership.
